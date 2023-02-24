@@ -13,6 +13,8 @@ public class ProductsPage extends BasePage {
     private WebElement shoppingCartBadge;
     @FindAll(@FindBy(css = "[class=\"inventory_item_description\"]"))
     private List<WebElement> itemDescriptionElements;
+    @FindBy(css = ".title")
+    private WebElement title;
 
     public ProductsPage(WebDriver driver) {
         super(driver);
@@ -37,5 +39,8 @@ public class ProductsPage extends BasePage {
         } else {
             System.out.println("Incorrect!");
         }
+    }
+    public String getPageTitle(){
+        return getElementText(title);
     }
 }
