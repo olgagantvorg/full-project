@@ -11,6 +11,8 @@ import org.openqa.selenium.support.FindBy;
         private WebElement passwordInput;
         @FindBy(css = "[data-test='login-button']")
         private WebElement loginButton;
+        @FindBy(css = "[data-test=\"error\"]")
+        private WebElement errorElement;
 
 
         public LoginPage(WebDriver driver) {
@@ -23,6 +25,9 @@ import org.openqa.selenium.support.FindBy;
             typeText(userNameInput,username);
             typeText(passwordInput,password);
             clickElement(loginButton);
+        }
+        public String getLoginErrorMessage(){
+            return getElementText(errorElement);
         }
     }
 
