@@ -4,9 +4,7 @@ import helpers.ApplicationUsl;
 import helpers.Credentials;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.LoginPage;
-import pages.ProductsPage;
-import pages.YourCartPage;
+import pages.*;
 import tests.BaseTest;
 
 public class BuyProductTest extends BaseTest {
@@ -27,5 +25,18 @@ public class BuyProductTest extends BaseTest {
         yourCartPage.validatePageTitle("YOUR CART");
         yourCartPage.validateCartItemsAmount(productsAmount);
         yourCartPage.checkOut();
+
+        CheckOutYourInformationPage checkOutYourInformationPage = new CheckOutYourInformationPage(driver);
+        checkOutYourInformationPage.validatePageTitle("CHECKOUT: YOUR INFORMATION");
+        checkOutYourInformationPage.fillCheckOutForm("Olga","Gant","195279");
+        checkOutYourInformationPage.continueToNextStep();
+
+        CheckoutOverViewPage checkoutOverViewPage = new CheckoutOverViewPage(driver);
+        checkoutOverViewPage.validatePageTitle("CHECKOUT: OVERVIEW");
+        checkoutOverViewPage.finishCheckout();
+
+        CheckoutCompletePage checkoutCompletePage = new CheckoutCompletePage(driver);
+        checkoutCompletePage.validatePageTitle("CHECKOUT: COMPLETE!");
+        checkoutCompletePage.validateCompleteHeader("THANK YOU FOR YOUR ORDER");
     }
 }
