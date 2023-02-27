@@ -11,7 +11,7 @@ import tests.BaseTest;
 
 public class ErrorHandlingTest extends BaseTest {
     @Test (dataProvider = "getData")
-    public void ErrorHandlingLoginTest(String username,String password,String expectedMessage){
+    public void errorHandlingLoginTest(String username, String password, String expectedMessage){
         driver.get(ApplicationUsl.BASEURL);
         LoginPage loginPage = new LoginPage(driver);
         loginPage.login(username,password);

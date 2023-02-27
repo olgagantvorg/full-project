@@ -39,4 +39,5 @@ public class BuyProductTest extends BaseTest {
         checkoutCompletePage.validatePageTitle("CHECKOUT: COMPLETE!");
         checkoutCompletePage.validateCompleteHeader("THANK YOU FOR YOUR ORDER");
     }
+
 }
